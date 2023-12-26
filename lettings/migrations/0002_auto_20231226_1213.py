@@ -2,55 +2,55 @@
 
 from django.db import migrations
 
-# def forwards_func(apps, schema_editor):
-#     OldAddress = apps.get_model("oc_lettings_site", "Address")
-#     NewAddress = apps.get_model("lettings", "Address")
+def forwards_func(apps, schema_editor):
+    OldAddress = apps.get_model("oc_lettings_site", "Address")
+    NewAddress = apps.get_model("lettings", "Address")
 
-#     new_addresses = NewAddress.objects.all()
-#     if new_addresses:
-#         for address in new_addresses:
-#             address.delete()
+    new_addresses = NewAddress.objects.all()
+    if new_addresses:
+        for address in new_addresses:
+            address.delete()
 
-#     NewAddress.objects.bulk_create(
-#         NewAddress(
-#             number=old_address.number,
-#             street=old_address.street,
-#             city=old_address.city,
-#             state=old_address.state,
-#             zip_code=old_address.zip_code,
-#             country_iso_code=old_address.country_iso_code,
-#         ) for old_address in OldAddress.objects.all()
-#     )
-
-
-# def reverse_func(apps, schema_editor):
-#     OldAddress = apps.get_model("oc_lettings_site", "Address")
-#     NewAddress = apps.get_model("lettings", "Address")
-
-#     old_addresses = OldAddress.objects.all()
-#     if old_addresses:
-#         for address in old_addresses:
-#             address.delete()
-
-#     OldAddress.objects.bulk_create(
-#         OldAddress(
-#             number=new_address.number,
-#             street=new_address.street,
-#             city=new_address.city,
-#             state=new_address.state,
-#             zip_code=new_address.zip_code,
-#             country_iso_code=new_address.country_iso_code,
-#         ) for new_address in NewAddress.objects.all()
-#     )
+    NewAddress.objects.bulk_create(
+        NewAddress(
+            number=old_address.number,
+            street=old_address.street,
+            city=old_address.city,
+            state=old_address.state,
+            zip_code=old_address.zip_code,
+            country_iso_code=old_address.country_iso_code,
+        ) for old_address in OldAddress.objects.all()
+    )
 
 
-# class Migration(migrations.Migration):
-#     """launch the migration operations"""
+def reverse_func(apps, schema_editor):
+    OldAddress = apps.get_model("oc_lettings_site", "Address")
+    NewAddress = apps.get_model("lettings", "Address")
 
-#     dependencies = [
-#         ('lettings', '0001_initial'),
-#     ]
+    old_addresses = OldAddress.objects.all()
+    if old_addresses:
+        for address in old_addresses:
+            address.delete()
 
-#     operations = [
-#         migrations.RunPython(forwards_func, reverse_func),
-#     ]
+    OldAddress.objects.bulk_create(
+        OldAddress(
+            number=new_address.number,
+            street=new_address.street,
+            city=new_address.city,
+            state=new_address.state,
+            zip_code=new_address.zip_code,
+            country_iso_code=new_address.country_iso_code,
+        ) for new_address in NewAddress.objects.all()
+    )
+
+
+class Migration(migrations.Migration):
+    """launch the migration operations"""
+
+    dependencies = [
+        ('lettings', '0001_initial'),
+    ]
+
+    operations = [
+        migrations.RunPython(forwards_func, reverse_func),
+    ]
