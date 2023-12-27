@@ -8,3 +8,7 @@ class OCLettingsSiteConfig(AppConfig):
 class LettingsAppConfig(AppConfig):
     """Serve the letting app's name to settings.py"""
     name = 'lettings'
+
+class ProfilesAppConfig(AppConfig):
+    """Serve the profiles app's name to settings.py"""
+    name = 'profiles'
