@@ -12,3 +12,7 @@ class LettingsAppConfig(AppConfig):
 class ProfilesAppConfig(AppConfig):
     """Serve the profiles app's name to settings.py"""
     name = 'profiles'
+
+class HomeAppConfig(AppConfig):
+    """Serve the home app's name to settings.py"""
+    name = 'home'
