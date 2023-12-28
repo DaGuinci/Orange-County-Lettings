@@ -10,3 +10,6 @@ urlpatterns = [
     url(r'^profiles/', include('profiles.urls', namespace='profiles')),
     path('admin/', admin.site.urls),
 ]
+
+handler404 = "home.views.custom_404"
+handler500 = "home.views.custom_500"
