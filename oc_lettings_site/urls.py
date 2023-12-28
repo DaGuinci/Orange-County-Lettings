@@ -10,7 +10,6 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     url(r'^lettings/', include('lettings.urls', namespace='lettings')),
-    path('profiles/', profiles_views.index, name='profiles_index'),
-    path('profiles/<str:username>/', profiles_views.profile, name='profile'),
+    url(r'^profiles/', include('profiles.urls', namespace='profiles')),
     path('admin/', admin.site.urls),
 ]
