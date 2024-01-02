@@ -1,5 +1,5 @@
 from django.test import TestCase, Client
-from django.urls import resolve, reverse
+from django.urls import reverse
 from lettings.models import Letting
 from lettings.models import Address
 
@@ -23,5 +23,5 @@ class TestUrls(TestCase):
         assert url == '/lettings/'
 
     def test_letting_url_is_resolved(self):
-        url = reverse('lettings:letting', kwargs={'letting_id':self.letting.id})
+        url = reverse('lettings:letting', kwargs={'letting_id': self.letting.id})
         assert url == '/lettings/'+str(self.letting.id)+'/'

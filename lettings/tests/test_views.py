@@ -1,5 +1,4 @@
 from django.test import TestCase, Client
-from django.urls import resolve, reverse
 from lettings.models import Letting
 from lettings.models import Address
 
