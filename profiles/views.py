@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Profile
+from django.shortcuts import get_object_or_404
 
 
 def index(request):
@@ -9,6 +10,6 @@ def index(request):
 
 
 def profile(request, username):
-    profile = Profile.objects.get(user__username=username)
+    profile = get_object_or_404(Profile, user__username=username)
     context = {'profile': profile}
     return render(request, 'profiles/profile.html', context)
