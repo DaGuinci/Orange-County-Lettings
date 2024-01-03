@@ -92,3 +92,15 @@ pytest --cov=.
 ## Accéder au rapport d'erreurs Sentry
 
 https://sentry.io/organizations/daguincicode/projects/python-django/?project=4506503864451072
+
+## Lancer docker
+
+A la racine du projet:
+```bash
+docker build -t daguinci/oc-orange-letting .
+```
+
+Puis dans un terminal:
+```bash
+docker run -p 8000:8000 --name oc-orange-letting daguinci/oc-orange-letting
+```
