@@ -1,9 +1,11 @@
 import os
-import json
+from dotenv import load_dotenv
 
 from pathlib import Path
 import sentry_sdk
 import falcon
+
+load_dotenv()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -121,13 +123,8 @@ STATICFILES_DIRS = [BASE_DIR / "static", ]
 
 # sentry part
 
-# import the sentry key
-f = open('local.json')
-config = json.load(f)
-f.close()
-
 sentry_sdk.init(
-    dsn=config['sentry_key'],
+    dsn=os.getenv('SENTRY_KEY'),
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
     traces_sample_rate=1.0,
