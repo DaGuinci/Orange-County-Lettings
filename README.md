@@ -102,14 +102,32 @@ SENTRY_KEY=<clé sentry>
 
 https://sentry.io/organizations/daguincicode/projects/python-django/?project=4506503864451072
 
-## Lancer docker
+## Utilisation de docker
 
-A la racine du projet:
+* récupérer la dernière image (latest):
+
 ```bash
-docker build -t daguinci/oc-orange-letting .
+docker pull daguinci/oc-letting:latest
 ```
 
-Puis dans un terminal:
+* récupérer une image correspondant à un commit:
+```bash
+docker pull daguinci/oc-letting:<nom du commit>
+```
+
+* créer une nouvelle image :
+
+```bash
+docker build -t daguinci/oc-letting:<tag> .
+```
+*On utilise les noms de commit comme tags*
+
+* Executer l'image:
 ```bash
 docker run -p 8000:8000 --name oc-orange-letting daguinci/oc-orange-letting
+```
+
+* Pousser l'image vers docker-hub:
+```bash
+  docker push daguinci/oc-letting:<tag>
 ```
