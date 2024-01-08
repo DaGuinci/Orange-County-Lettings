@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 
 from pathlib import Path
 import sentry_sdk
-import falcon
+# import falcon
 
 load_dotenv()
 
