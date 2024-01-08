@@ -88,6 +88,15 @@ pytest --cov=.
 * Aller sur `http://localhost:8000/admin`
 * Connectez-vous avec l'utilisateur `admin`, mot de passe `Abc1234!`
 
+#### Activer le logging sur Sentry
+
+Ajouter en local un fichier .env à la racine du projet:
+
+```python
+# .env
+
+SENTRY_KEY=<clé sentry>
+```
 
 ## Accéder au rapport d'erreurs Sentry
 
