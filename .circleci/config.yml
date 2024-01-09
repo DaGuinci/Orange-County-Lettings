@@ -6,4 +6,7 @@ jobs:
     docker:
      - image: cimg/base:2022.05
     steps:
-        - run: echo "Say hello to YAML!"
+        - run:
+        - name: Execute tests suite
+        - command:
+          pytest
