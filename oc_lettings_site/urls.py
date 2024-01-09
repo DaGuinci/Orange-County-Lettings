@@ -1,13 +1,15 @@
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url, include
 
-from . import views
+# from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('lettings/', views.lettings_index, name='lettings_index'),
-    path('lettings/<int:letting_id>/', views.letting, name='letting'),
-    path('profiles/', views.profiles_index, name='profiles_index'),
-    path('profiles/<str:username>/', views.profile, name='profile'),
+    url(r'', include('home.urls', namespace='home')),
+    url(r'^lettings/', include('lettings.urls', namespace='lettings')),
+    url(r'^profiles/', include('profiles.urls', namespace='profiles')),
     path('admin/', admin.site.urls),
 ]
+
+handler404 = "home.views.custom_404"
+handler500 = "home.views.custom_500"
