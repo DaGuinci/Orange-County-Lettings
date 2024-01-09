@@ -10,4 +10,5 @@ jobs:
         - run:
             name: Execute tests suite
             command: |
+              ls
               pytest
