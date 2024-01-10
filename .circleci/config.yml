@@ -4,6 +4,12 @@ version: 2.1
 orbs:
   python: circleci/python@2.1.1
 
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - deploy
+
 jobs:
   build:
     docker:
@@ -19,3 +25,11 @@ jobs:
               pip --version
               pip install -r requirements.txt
               pytest
+  deploy:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+        name: "Deploy"
+        command: curl -X GET https://api.render.com/deploy/srv-cmfaeoen7f5s7384hntg?key=9ibAi315EPs
