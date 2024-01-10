@@ -5,22 +5,24 @@ orbs:
   python: circleci/python@2.1.1
 
 workflows:
-  tests_suite:
+  version: 2
+  build_and_deploy:
     jobs:
       - tests
-
-  conditional-workflow:
-    when:
-      and: # All must be true to trigger
-        - equal: [ main, << pipeline.git.branch >> ]
-        build_and_deploy:
-            - build:
-                requires:
-                  - tests
-            - deploy:
-                requires:
-                  - build
-
+      - build:
+          requires:
+            - tests
+          filters:
+            branches:
+              only:
+                - main
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - main
 jobs:
   tests:
     docker:
