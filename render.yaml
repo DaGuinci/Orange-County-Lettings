@@ -1,8 +1,3 @@
-databases:
-  - name: oc-orange-letting
-    databaseName: oc-orange-letting
-    user: oc-orange-letting
-
 services:
   - type: web
     name: oc-orange-letting
