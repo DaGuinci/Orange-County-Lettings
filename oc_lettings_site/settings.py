@@ -21,7 +21,10 @@ SECRET_KEY = 'fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s'
 DEBUG = False
 
 # uncomment to view custom error pages
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "*",
+    'oc-orange-county-letting.onrender.com'
+    ]
 
 
 # Application definition
