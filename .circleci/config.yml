@@ -8,13 +8,16 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - build
+      - tests
+      - build:
+          requires:
+            - tests
       - deploy:
           requires:
             - build
 
 jobs:
-  build:
+  tests:
     docker:
       - image: cimg/python:3.12.1
     executor: python/default
@@ -28,11 +31,34 @@ jobs:
               pip --version
               pip install -r requirements.txt
               pytest
+  build:
+    docker:
+      - image: cimg/python:3.8
+    steps:
+        - checkout
+        - setup_remote_docker:
+            docker_layer_caching: true
+        - run:
+            name: "Build Docker Image"
+            command: |
+              docker build -t oc-letting .
+              docker save -o oc-letting.tar oc-letting
+        - persist_to_workspace:
+            root: .
+            paths:
+              - oc-letting.tar
+
   deploy:
     docker:
       - image: cimg/base:stable
     steps:
         - checkout
+        - setup_remote_docker
+        - attach_workspace:
+            at: .
+        - run:
+            name: "Load docker image"
+            command: docker load -i oc-letting.tar
         - run:
             name: "Deploy"
             command: curl -X GET https://api.render.com/deploy/srv-cmfaeoen7f5s7384hntg?key=9ibAi315EPs
