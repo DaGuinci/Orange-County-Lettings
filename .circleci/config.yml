@@ -41,6 +41,7 @@ jobs:
         - run:
             name: "Build Docker Image"
             command: |
+              python manage.py collectstatic
               docker build -t oc-letting .
               docker save -o oc-letting.tar oc-letting
         - persist_to_workspace:
