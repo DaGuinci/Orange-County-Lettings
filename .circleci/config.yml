@@ -37,9 +37,6 @@ jobs:
               pip --version
               pip install -r requirements.txt
               pytest
-        - run:
-            name: Check coverage
-            command: |
               coverage report -m --fail-under=80
   build:
     docker:
