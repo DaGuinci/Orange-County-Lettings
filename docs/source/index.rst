@@ -10,6 +10,9 @@ Welcome to Orange County Letting's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   install
+   usage
+
 
 
 Indices and tables
