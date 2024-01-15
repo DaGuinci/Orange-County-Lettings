@@ -1,29 +1,66 @@
+============
 Installation
 ============
 
-.. _installation:
+Afin d'installer le site en local, voici les étapes à suivre.
 
-Installation
-------------
+1. Cloner le repertoire git
 
-To use Lumache, first install it using pip:
+.. code-block:: bash
 
-.. code-block:: console
+    cd /path/to/put/project/in
+    git clone https://github.com/DaGuinci/Orange-County-Lettings.git
 
-   (.venv) $ pip install lumache
+2. Créer l'environnement virtuel
 
-Creating recipes
-----------------
+.. code-block:: bash
 
-To retrieve a list of random ingredients,
-you can use the ``lumache.get_random_ingredients()`` function:
+    cd /path/to/Python-OC-Lettings-FR
+    python -m venv venv
 
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
-will raise an exception.
+* Activer l'environnement
 
-For example:
+.. code-block:: bash
 
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
+    source venv/bin/activate
+
+
+* Confirmer que la commande `python` exécute l'interpréteur Python dans l'environnement virtuel
+
+.. code-block:: bash
+
+    which python
+
+
+* Confirmer que la version de l'interpréteur Python est la version 3.6 ou supérieure
+
+.. code-block:: bash
+
+    python --version
+
+
+* Confirmer que la commande `pip` exécute l'exécutable pip dans l'environnement virtuel
+
+.. code-block:: bash
+
+    which pip
+
+
+* Pour désactiver l'environnement
+
+.. code-block:: bash
+
+    deactivate
+
+
+3. Exécuter le site
+
+.. code-block:: bash
+
+    cd /path/to/Python-OC-Lettings-FR
+    source venv/bin/activate
+    pip install --requirement requirements.txt
+    python manage.py runserver
+
+* Aller sur `http://localhost:8000` dans un navigateur.
+

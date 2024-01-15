@@ -21,8 +21,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Usage" href="usage.html" />
-    <link rel="prev" title="Welcome to Orange County Letting’s documentation!" href="index.html" /> 
+    <link rel="next" title="Development" href="dev.html" />
+    <link rel="prev" title="Bienvenue sur la documentation du site Orange County Letting!" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,12 +46,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#creating-recipes">Creating recipes</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev.html">Development</a></li>
 </ul>
 
         </div>
@@ -80,35 +76,71 @@
              
   <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
-<section id="id1">
-<span id="id2"></span><h2>Installation<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
-<p>To use Lumache, first install it using pip:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>lumache
+<p>Afin d’installer le site en local, voici les étapes à suivre.</p>
+<ol class="arabic simple">
+<li><p>Cloner le repertoire git</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/put/project/in
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DaGuinci/Orange-County-Lettings.git
 </pre></div>
 </div>
-</section>
-<section id="creating-recipes">
-<h2>Creating recipes<a class="headerlink" href="#creating-recipes" title="Link to this heading"></a></h2>
-<p>To retrieve a list of random ingredients,
-you can use the <code class="docutils literal notranslate"><span class="pre">lumache.get_random_ingredients()</span></code> function:</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">kind</span></code> parameter should be either <code class="docutils literal notranslate"><span class="pre">&quot;meat&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;fish&quot;</span></code>,
-or <code class="docutils literal notranslate"><span class="pre">&quot;veggies&quot;</span></code>. Otherwise, <code class="xref py py-func docutils literal notranslate"><span class="pre">lumache.get_random_ingredients()</span></code>
-will raise an exception.</p>
-<p>For example:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">lumache</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lumache</span><span class="o">.</span><span class="n">get_random_ingredients</span><span class="p">()</span>
-<span class="go">[&#39;shells&#39;, &#39;gorgonzola&#39;, &#39;parsley&#39;]</span>
+<ol class="arabic simple" start="2">
+<li><p>Créer l’environnement virtuel</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/Python-OC-Lettings-FR
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
 </pre></div>
 </div>
-</section>
+<ul class="simple">
+<li><p>Activer l’environnement</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Confirmer que la commande <cite>python</cite> exécute l’interpréteur Python dans l’environnement virtuel</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>which<span class="w"> </span>python
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Confirmer que la version de l’interpréteur Python est la version 3.6 ou supérieure</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>--version
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Confirmer que la commande <cite>pip</cite> exécute l’exécutable pip dans l’environnement virtuel</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>which<span class="w"> </span>pip
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Pour désactiver l’environnement</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>deactivate
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Exécuter le site</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/Python-OC-Lettings-FR
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>--requirement<span class="w"> </span>requirements.txt
+python<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Aller sur <cite>http://localhost:8000</cite> dans un navigateur.</p></li>
+</ul>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Orange County Letting’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Bienvenue sur la documentation du site Orange County Letting!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dev.html" class="btn btn-neutral float-right" title="Development" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
