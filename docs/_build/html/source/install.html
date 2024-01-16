@@ -46,7 +46,11 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#contexte">Contexte</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Installation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="dev.html">Developpement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 </ul>
@@ -77,18 +81,22 @@
              
   <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+<section id="contexte">
+<h2>Contexte<a class="headerlink" href="#contexte" title="Link to this heading"></a></h2>
+<p>Orange County Lettings est une start-up dans le secteur de la
+location de biens immobiliers.</p>
+<p>La start-up est en pleine phase d’expansion aux États-Unis.</p>
+</section>
+<section id="id1">
+<h2>Installation<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
-<li><p>Description</p></li>
-</ol>
-<p>Afin d’installer le site en local, voici les étapes à suivre.</p>
-<ol class="arabic simple" start="2">
 <li><p>Cloner le repertoire git</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/put/project/in
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DaGuinci/Orange-County-Lettings.git
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
+<ol class="arabic simple" start="2">
 <li><p>Créer l’environnement virtuel</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/Python-OC-Lettings-FR
@@ -125,7 +133,7 @@ python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </s
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>deactivate
 </pre></div>
 </div>
-<ol class="arabic simple" start="4">
+<ol class="arabic simple" start="3">
 <li><p>Exécuter le site</p></li>
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/Python-OC-Lettings-FR
@@ -137,6 +145,7 @@ python<span class="w"> </span>manage.py<span class="w"> </span>runserver
 <ul class="simple">
 <li><p>Aller sur <cite>http://localhost:8000</cite> dans un navigateur.</p></li>
 </ul>
+</section>
 </section>
 
 

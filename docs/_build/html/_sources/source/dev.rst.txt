@@ -5,7 +5,7 @@ Developpement
 Description
 -----------
 
-Le site, basé sur Django, est **basé sur trois apps:**
+Le site, basé sur Django, **contient trois apps:**
 
 .. code-block:: bash
 
@@ -119,7 +119,14 @@ Puis accéder au
 La documentation est gérée par **ReadTheDocs et Sphinx**.
 Les fichiers se trouvent dans le dossier /docs/source.
 
-Une fois aopportées les modifications de la documentation.
+Une fois aopportées les modifications de la documentation, tester avec:
+
+.. code-block:: bash
+
+    cd docs
+    make html
+
+Puis ouvrir le fichier ``docs/_build/html/index.html``
 
 Exécuter la pipeline
 ^^^^^^^^^^^^^^^^^^^^
@@ -131,6 +138,30 @@ chaque branche du dépôt Git. Ainsi, pour exécuter cette pipeline:
 
     git push origin <nom-de-votre-branche>
 
+Une fois la pipeline terminée avec succès, merger sur dev
+
+.. code-block:: bash
+
+    git checkout dev
+    git fetch
+    git merge <nom-de-votre-branche>
+
+Á ce stade, la documentation est mise à jour sur
+`<https://daguinci-orange-county-lettings.readthedocs.io/en/docs-setup-readthedocs/source/dev.html>`_
 
 Deploiement
 -----------
+
+Le déploiement se réalise automatiquement à travers CircleCi,
+en cas de commit sur la branche master.
+
+Ainsi, pour déployer:
+
+.. code-block:: bash
+
+    git checkout master
+    git fetch
+    git merge dev
+
+Après quelques minutes, le site est visible sur
+`Render <https://oc-orange-county-letting.onrender.com/>`_
