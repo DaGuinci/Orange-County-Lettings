@@ -10,6 +10,6 @@ Bienvenue sur la documentation du site Orange County Letting!
    :maxdepth: 2
    :caption: Contents:
 
-   install
-   dev
-   usage
+   source/install
+   source/dev
+   source/usage
