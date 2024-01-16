@@ -2,16 +2,18 @@
 Installation
 ============
 
+1. Description
+
 Afin d'installer le site en local, voici les étapes à suivre.
 
-1. Cloner le repertoire git
+2. Cloner le repertoire git
 
 .. code-block:: bash
 
     cd /path/to/put/project/in
     git clone https://github.com/DaGuinci/Orange-County-Lettings.git
 
-2. Créer l'environnement virtuel
+3. Créer l'environnement virtuel
 
 .. code-block:: bash
 
@@ -53,7 +55,7 @@ Afin d'installer le site en local, voici les étapes à suivre.
     deactivate
 
 
-3. Exécuter le site
+4. Exécuter le site
 
 .. code-block:: bash
 

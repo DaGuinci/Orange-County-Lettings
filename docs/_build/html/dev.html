@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Development &mdash; Orange County Letting  documentation</title>
+  <title>Developpement &mdash; Orange County Letting  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -21,6 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Usage" href="usage.html" />
     <link rel="prev" title="Installation" href="install.html" /> 
 </head>
 
@@ -46,7 +47,12 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Development</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developpement</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modifications">Modifications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 </ul>
 
         </div>
@@ -63,7 +69,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Development</li>
+      <li class="breadcrumb-item active">Developpement</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/dev.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -73,9 +79,97 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="development">
-<h1>Development<a class="headerlink" href="#development" title="Link to this heading"></a></h1>
-<p>To submit a new feature o fix a function, here are the steps to follow.</p>
+  <section id="developpement">
+<h1>Developpement<a class="headerlink" href="#developpement" title="Link to this heading"></a></h1>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
+<p>Le site, basé sur Django, est <strong>basé sur trois apps:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc-lettings-site
+├──<span class="w"> </span>app:home
+│<span class="w">   </span>└──<span class="w"> </span>views.py
+│<span class="w">       </span>├──<span class="w"> </span>index
+│<span class="w">       </span>├──<span class="w"> </span>custom_404
+│<span class="w">       </span>├──<span class="w"> </span>custom_500
+│<span class="w">       </span>└──<span class="w"> </span>error_generating
+├──<span class="w"> </span>app:profiles
+│<span class="w">   </span>├──<span class="w"> </span>models.py
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>Profile
+│<span class="w">   </span>└──<span class="w"> </span>views.py
+│<span class="w">       </span>├──<span class="w"> </span>index
+│<span class="w">       </span>└──<span class="w"> </span>profile
+├──<span class="w"> </span>app:lettings
+│<span class="w">   </span>├──<span class="w"> </span>models.py
+│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>Address
+│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>Letting
+│<span class="w">   </span>└──<span class="w"> </span>views.py
+│<span class="w">       </span>├──<span class="w"> </span>index
+│<span class="w">       </span>└──<span class="w"> </span>letting
+├──<span class="w"> </span>config:oc_lettings_site
+<span class="w">    </span>└──<span class="w"> </span>settings.py
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Dans l’attente de nouvelles instructions,
+la <strong>base de données, en sqlite, est versionnée</strong>.</p>
+<p>Prenez donc en considération que les modifications sur la base
+auront un impact sur les bases des collaborateurs
+et celle de la production, en cas de push.</p>
+</div>
+</section>
+<section id="modifications">
+<h2>Modifications<a class="headerlink" href="#modifications" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>En local</p></li>
+</ol>
+<ul class="simple">
+<li><p>Créer une nouvelle branche</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>dev
+git<span class="w"> </span>branch<span class="w"> </span>&lt;type-de-modif&gt;/&lt;nature-de-la-modif&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Effectuer le test pep8</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+flake8
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Effectuer la suite de tests</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/Python-OC-Lettings-FR
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+pytest<span class="w"> </span>--cov<span class="o">=</span>.
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>La suite de tests intègre la génération d’une erreur 500.
+En cas d’activation de Sentry (cf paragraphe Sentry), une erreur
+est envoyée à chaque execution des tests.</p>
+</div>
+<ul class="simple">
+<li><p>Activer le logging sur Sentry</p></li>
+</ul>
+<p>Ajouter en local un fichier .env à la racine du projet:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># .env</span>
+
+<span class="n">SENTRY_KEY</span><span class="o">=&lt;</span><span class="n">clé</span> <span class="n">sentry</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Puis accéder au
+<a class="reference external" href="https://sentry.io/organizations/daguincicode/projects/python-django/?project=4506503864451072">rapport d’errurs</a></p>
+<ul class="simple">
+<li><p>Tester une image docker</p></li>
+<li><p>Tester les rapports d’erreur sur Sentry</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Exécuter la pipeline</p></li>
+<li><p>Deploiement</p></li>
+</ol>
+</section>
 </section>
 
 
@@ -83,6 +177,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

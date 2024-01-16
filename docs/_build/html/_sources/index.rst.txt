@@ -12,3 +12,4 @@ Bienvenue sur la documentation du site Orange County Letting!
 
    install
    dev
+   usage
