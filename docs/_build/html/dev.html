@@ -49,7 +49,12 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Developpement</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#description">Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#modifications">Modifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#modifications">Modifications</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#travailler-en-local">Travailler en local</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#executer-la-pipeline">Exécuter la pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#deploiement">Deploiement</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
@@ -119,9 +124,8 @@ et celle de la production, en cas de push.</p>
 </section>
 <section id="modifications">
 <h2>Modifications<a class="headerlink" href="#modifications" title="Link to this heading"></a></h2>
-<ol class="arabic simple">
-<li><p>En local</p></li>
-</ol>
+<section id="travailler-en-local">
+<h3>Travailler en local<a class="headerlink" href="#travailler-en-local" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Créer une nouvelle branche</p></li>
 </ul>
@@ -162,13 +166,18 @@ est envoyée à chaque execution des tests.</p>
 <p>Puis accéder au
 <a class="reference external" href="https://sentry.io/organizations/daguincicode/projects/python-django/?project=4506503864451072">rapport d’errurs</a></p>
 <ul class="simple">
-<li><p>Tester une image docker</p></li>
-<li><p>Tester les rapports d’erreur sur Sentry</p></li>
+<li><p>Tester la dernière image docker stable (correspondant à la branche dev)</p></li>
 </ul>
-<ol class="arabic simple" start="2">
-<li><p>Exécuter la pipeline</p></li>
-<li><p>Deploiement</p></li>
-</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>daguinci/oc-letting
+</pre></div>
+</div>
+</section>
+<section id="executer-la-pipeline">
+<h3>Exécuter la pipeline<a class="headerlink" href="#executer-la-pipeline" title="Link to this heading"></a></h3>
+</section>
+</section>
+<section id="deploiement">
+<h2>Deploiement<a class="headerlink" href="#deploiement" title="Link to this heading"></a></h2>
 </section>
 </section>
 

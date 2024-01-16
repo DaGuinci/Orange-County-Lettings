@@ -46,7 +46,8 @@ Le site, basé sur Django, est **basé sur trois apps:**
 Modifications
 -------------
 
-1. En local
+Travailler en local
+^^^^^^^^^^^^^^^^^^^
 
 * Créer une nouvelle branche
 
@@ -70,7 +71,6 @@ Modifications
     source venv/bin/activate
     pytest --cov=.
 
-
 .. note::
 
     La suite de tests intègre la génération d'une erreur 500.
@@ -90,10 +90,15 @@ Ajouter en local un fichier .env à la racine du projet:
 Puis accéder au
 `rapport d'errurs <https://sentry.io/organizations/daguincicode/projects/python-django/?project=4506503864451072>`_
 
-* Tester une image docker
+* Tester la dernière image docker stable (correspondant à la branche dev)
 
-* Tester les rapports d'erreur sur Sentry
+.. code-block:: bash
 
-2. Exécuter la pipeline
+    docker run -it --rm -p 8000:8000 daguinci/oc-letting
 
-3. Deploiement
+
+Exécuter la pipeline
+^^^^^^^^^^^^^^^^^^^^
+
+Deploiement
+-----------

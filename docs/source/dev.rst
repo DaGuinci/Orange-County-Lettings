@@ -46,7 +46,8 @@ Le site, basé sur Django, est **basé sur trois apps:**
 Modifications
 -------------
 
-1. En local
+Travailler en local
+^^^^^^^^^^^^^^^^^^^
 
 * Créer une nouvelle branche
 
@@ -70,7 +71,6 @@ Modifications
     source venv/bin/activate
     pytest --cov=.
 
-
 .. note::
 
     La suite de tests intègre la génération d'une erreur 500.
@@ -90,15 +90,28 @@ Ajouter en local un fichier .env à la racine du projet:
 Puis accéder au
 `rapport d'errurs <https://sentry.io/organizations/daguincicode/projects/python-django/?project=4506503864451072>`_
 
-* Tester la dernière image docker stable (correspondant à la production)
+* Tester la dernière image docker stable (correspondant à la branche dev)
 
 .. code-block:: bash
 
-     docker run -it --rm -p 8000:8000 $DOCKER_USERNAME/REPO:TAG
+    docker run -it --rm -p 8000:8000 daguinci/oc-letting
+
+* Créer une image en local pour test
+
+.. code-block:: bash
+
+    docker build -t daguinci/oc-letting:<nom-de-votre-commit> .
+
+Exécuter la pipeline
+^^^^^^^^^^^^^^^^^^^^
+
+CircleCi exécute la pipeline de tests pour chaque commit soumis sur
+chaque branche du dépôt Git. Ainsi, pour exécuter cette pipeline:
+
+.. code-block:: bash
+
+    git push origin <nom-de-votre-branche>
 
 
-* Tester les rapports d'erreur sur Sentry
-
-2. Exécuter la pipeline
-
-3. Deploiement
+Deploiement
+-----------
