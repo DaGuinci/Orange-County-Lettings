@@ -2,18 +2,25 @@
 Installation
 ============
 
-1. Description
+Contexte
+--------
 
-Afin d'installer le site en local, voici les étapes à suivre.
+Orange County Lettings est une start-up dans le secteur de la
+location de biens immobiliers.
 
-2. Cloner le repertoire git
+La start-up est en pleine phase d’expansion aux États-Unis.
+
+Installation
+------------
+
+1. Cloner le repertoire git
 
 .. code-block:: bash
 
     cd /path/to/put/project/in
     git clone https://github.com/DaGuinci/Orange-County-Lettings.git
 
-3. Créer l'environnement virtuel
+2. Créer l'environnement virtuel
 
 .. code-block:: bash
 
@@ -55,7 +62,7 @@ Afin d'installer le site en local, voici les étapes à suivre.
     deactivate
 
 
-4. Exécuter le site
+3. Exécuter le site
 
 .. code-block:: bash
 

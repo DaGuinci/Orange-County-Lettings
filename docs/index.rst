@@ -12,4 +12,4 @@ Bienvenue sur la documentation du site Orange County Letting!
 
    source/install
    source/dev
-   source/usage
+   source/admin

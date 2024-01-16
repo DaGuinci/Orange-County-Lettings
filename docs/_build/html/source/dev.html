@@ -21,7 +21,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Usage" href="usage.html" />
+    <link rel="next" title="Administration" href="admin.html" />
     <link rel="prev" title="Installation" href="install.html" /> 
 </head>
 
@@ -57,7 +57,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#deploiement">Deploiement</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="admin.html">Administration</a></li>
 </ul>
 
         </div>
@@ -88,7 +88,7 @@
 <h1>Developpement<a class="headerlink" href="#developpement" title="Link to this heading"></a></h1>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
-<p>Le site, basé sur Django, est <strong>basé sur trois apps:</strong></p>
+<p>Le site, basé sur Django, <strong>contient trois apps:</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc-lettings-site
 ├──<span class="w"> </span>app:home
 │<span class="w">   </span>└──<span class="w"> </span>views.py
@@ -194,7 +194,12 @@ latest, la dernière image stable.</p>
 </ul>
 <p>La documentation est gérée par <strong>ReadTheDocs et Sphinx</strong>.
 Les fichiers se trouvent dans le dossier /docs/source.</p>
-<p>Une fois aopportées les modifications de la documentation.</p>
+<p>Une fois aopportées les modifications de la documentation, tester avec:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>docs
+make<span class="w"> </span>html
+</pre></div>
+</div>
+<p>Puis ouvrir le fichier <code class="docutils literal notranslate"><span class="pre">docs/_build/html/index.html</span></code></p>
 </section>
 <section id="executer-la-pipeline">
 <h3>Exécuter la pipeline<a class="headerlink" href="#executer-la-pipeline" title="Link to this heading"></a></h3>
@@ -203,10 +208,28 @@ chaque branche du dépôt Git. Ainsi, pour exécuter cette pipeline:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;nom-de-votre-branche&gt;
 </pre></div>
 </div>
+<p>Une fois la pipeline terminée avec succès, merger sur dev</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>dev
+git<span class="w"> </span>fetch
+git<span class="w"> </span>merge<span class="w"> </span>&lt;nom-de-votre-branche&gt;
+</pre></div>
+</div>
+<p>Á ce stade, la documentation est mise à jour sur
+<a class="reference external" href="https://daguinci-orange-county-lettings.readthedocs.io/en/docs-setup-readthedocs/source/dev.html">https://daguinci-orange-county-lettings.readthedocs.io/en/docs-setup-readthedocs/source/dev.html</a></p>
 </section>
 </section>
 <section id="deploiement">
 <h2>Deploiement<a class="headerlink" href="#deploiement" title="Link to this heading"></a></h2>
+<p>Le déploiement se réalise automatiquement à travers CircleCi,
+en cas de commit sur la branche master.</p>
+<p>Ainsi, pour déployer:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>master
+git<span class="w"> </span>fetch
+git<span class="w"> </span>merge<span class="w"> </span>dev
+</pre></div>
+</div>
+<p>Après quelques minutes, le site est visible sur
+<a class="reference external" href="https://oc-orange-county-letting.onrender.com/">Render</a></p>
 </section>
 </section>
 
@@ -215,7 +238,7 @@ chaque branche du dépôt Git. Ainsi, pour exécuter cette pipeline:</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="install.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="admin.html" class="btn btn-neutral float-right" title="Administration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
