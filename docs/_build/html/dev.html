@@ -171,9 +171,38 @@ est envoyée à chaque execution des tests.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>-p<span class="w"> </span><span class="m">8000</span>:8000<span class="w"> </span>daguinci/oc-letting
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>Créer une image en local pour test</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>daguinci/oc-letting:&lt;nom-de-votre-commit&gt;<span class="w"> </span>.
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Envoyer une nouvelle image sur le dépôt docker-hub</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>push<span class="w"> </span>daguinci/oc-letting:&lt;nom-de-votre-commit&gt;
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Pour les deux étapes précédentes,
+attention à bien mentionner le nom du commit, sous peine d’écraser
+latest, la dernière image stable.</p>
+</div>
+<ul class="simple">
+<li><p>Mettre à jour la documentation</p></li>
+</ul>
+<p>La documentation est gérée par <strong>ReadTheDocs et Sphinx</strong>.
+Les fichiers se trouvent dans le dossier /docs/source.</p>
+<p>Une fois aopportées les modifications de la documentation.</p>
 </section>
 <section id="executer-la-pipeline">
 <h3>Exécuter la pipeline<a class="headerlink" href="#executer-la-pipeline" title="Link to this heading"></a></h3>
+<p>CircleCi exécute la pipeline de tests pour chaque commit soumis sur
+chaque branche du dépôt Git. Ainsi, pour exécuter cette pipeline:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;nom-de-votre-branche&gt;
+</pre></div>
+</div>
 </section>
 </section>
 <section id="deploiement">

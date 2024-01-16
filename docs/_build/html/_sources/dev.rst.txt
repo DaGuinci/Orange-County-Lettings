@@ -96,9 +96,41 @@ Puis accéder au
 
     docker run -it --rm -p 8000:8000 daguinci/oc-letting
 
+* Créer une image en local pour test
+
+.. code-block:: bash
+
+    docker build -t daguinci/oc-letting:<nom-de-votre-commit> .
+
+* Envoyer une nouvelle image sur le dépôt docker-hub
+
+.. code-block:: bash
+
+    docker push daguinci/oc-letting:<nom-de-votre-commit>
+
+.. warning::
+
+    Pour les deux étapes précédentes,
+    attention à bien mentionner le nom du commit, sous peine d'écraser
+    latest, la dernière image stable.
+
+* Mettre à jour la documentation
+
+La documentation est gérée par **ReadTheDocs et Sphinx**.
+Les fichiers se trouvent dans le dossier /docs/source.
+
+Une fois aopportées les modifications de la documentation.
 
 Exécuter la pipeline
 ^^^^^^^^^^^^^^^^^^^^
+
+CircleCi exécute la pipeline de tests pour chaque commit soumis sur
+chaque branche du dépôt Git. Ainsi, pour exécuter cette pipeline:
+
+.. code-block:: bash
+
+    git push origin <nom-de-votre-branche>
+
 
 Deploiement
 -----------

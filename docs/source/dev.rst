@@ -102,6 +102,25 @@ Puis accéder au
 
     docker build -t daguinci/oc-letting:<nom-de-votre-commit> .
 
+* Envoyer une nouvelle image sur le dépôt docker-hub
+
+.. code-block:: bash
+
+    docker push daguinci/oc-letting:<nom-de-votre-commit>
+
+.. warning::
+
+    Pour les deux étapes précédentes,
+    attention à bien mentionner le nom du commit, sous peine d'écraser
+    latest, la dernière image stable.
+
+* Mettre à jour la documentation
+
+La documentation est gérée par **ReadTheDocs et Sphinx**.
+Les fichiers se trouvent dans le dossier /docs/source.
+
+Une fois aopportées les modifications de la documentation.
+
 Exécuter la pipeline
 ^^^^^^^^^^^^^^^^^^^^
 
