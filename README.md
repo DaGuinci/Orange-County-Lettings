@@ -107,7 +107,7 @@ https://sentry.io/organizations/daguincicode/projects/python-django/?project=450
 * récupérer la dernière image (latest):
 
 ```bash
-docker pull daguinci/oc-letting:latest
+docker pull daguinci/oc-letting
 ```
 
 * récupérer une image correspondant à un commit:
@@ -118,13 +118,12 @@ docker pull daguinci/oc-letting:<nom du commit>
 * créer une nouvelle image :
 
 ```bash
-docker build -t daguinci/oc-letting:<tag> .
+docker build -t daguinci/oc-letting:<nom du commit> .
 ```
-*On utilise les noms de commit comme tags*
 
 * Executer l'image:
 ```bash
-docker run -p 8000:8000 --name oc-orange-letting daguinci/oc-orange-letting
+docker run -p 8000:8000 --name oc-orange-letting daguinci/oc-letting:<nom du commit>
 ```
 
 * Pousser l'image vers docker-hub:
