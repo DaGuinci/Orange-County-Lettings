@@ -55,6 +55,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#deploiement">Deploiement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exemple">Exemple</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cas-d-usage">Cas d’usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#procedure">Procédure</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="admin.html">Administration</a></li>
@@ -163,7 +168,7 @@ est envoyée à chaque execution des tests.</p>
 </pre></div>
 </div>
 <p>Puis accéder au
-<a class="reference external" href="https://sentry.io/organizations/daguincicode/projects/python-django/?project=4506503864451072">rapport d’errurs</a></p>
+<a class="reference external" href="https://sentry.io/organizations/daguincicode/projects/python-django/?project=4506503864451072">rapport d’erreurs</a></p>
 <ul class="simple">
 <li><p>Tester la dernière image docker stable (correspondant à la branche dev)</p></li>
 </ul>
@@ -229,6 +234,120 @@ git<span class="w"> </span>merge<span class="w"> </span>dev
 </div>
 <p>Après quelques minutes, le site est visible sur
 <a class="reference external" href="https://oc-orange-county-letting.onrender.com/">Render</a></p>
+</section>
+<section id="exemple">
+<h2>Exemple<a class="headerlink" href="#exemple" title="Link to this heading"></a></h2>
+<section id="cas-d-usage">
+<h3>Cas d’usage<a class="headerlink" href="#cas-d-usage" title="Link to this heading"></a></h3>
+<p>On souhaite par exemple modifier le titre du site.</p>
+<p>Actuellement “Welcome to Holiday Homes”, on souhaite un nouveau titre:
+“Welcome to the Orange County Lettings Website”</p>
+</section>
+<section id="procedure">
+<h3>Procédure<a class="headerlink" href="#procedure" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Création d’une nouvelle branche</p>
+<blockquote>
+<div><p><strong>Prérequis</strong></p>
+<p>Avant de pouvoir effectuer une modification il est nécessaire d’
+<a class="reference internal" href="install.html#installation-du-site-en-local"><span class="std std-ref">installer le site en local</span></a></p>
+<ul class="simple">
+<li><p>Dans un terminal, se rendre à la racine du projet</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">emplacement</span><span class="o">/</span><span class="n">du</span><span class="o">/</span><span class="n">projet</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>S’assurer d’avoir la dernière version dev à jour:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>dev
+git<span class="w"> </span>fetch
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Créer la nouvelle branche</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>branch<span class="w"> </span>-b<span class="w"> </span>content/change-title
+</pre></div>
+</div>
+<p><em>L’option -b permet de basculer instantanément sur la nouvele branche</em></p>
+</div></blockquote>
+</li>
+<li><p>Travail en local</p>
+<blockquote>
+<div><p>Avant de commencer, on passe le site en mode développement, en modifiant
+l’option DEBUG dans le fichier ./oc_lettings_site/settings.py:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Modification du code</p></li>
+</ul>
+<p>Dans notre cas, on modifie le fichier ./home/templates/home/index.html,
+à la ligne 10:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;page-header-ui-title mb-3 display-6&quot;</span><span class="p">&gt;</span>Welcome to the Orange County Lettings Website<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Tester la modification en local</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>manage.py<span class="w"> </span>runserver
+</pre></div>
+</div>
+<p>Puis se rendre sur <cite>http://localhost:8000</cite> à l’aide d’un navigateur.</p>
+<ul class="simple">
+<li><p>Vérifier qu’aucune fonction du site n’a été impactée par la modification</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest
+</pre></div>
+</div>
+<p>Si tous les tests passent, on passe à l’étape suivante.</p>
+<ul class="simple">
+<li><p>Effectuer un commit de la modification</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Mettre à jour la documentation</p></li>
+</ul>
+<p>Bien que ce ne soit pas nécessaire dans notre cas d’usage,
+c’est ce moment qu’on préférera pour modifier la documentation.</p>
+<p>Pour cela on modifiera l’un des fichiers .rst présents dans ./docs/source,
+voire le fichier .dos/index.rst en cas de nouvelle section, pour la faire
+apparaître dans le sommaire.</p>
+<ul class="simple">
+<li><p>Tester la documentation en local</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>docs
+make<span class="w"> </span>html
+</pre></div>
+</div>
+<p>Afficher la nouvelle documentation en ouvrant le fichier
+.docs/_build/html/index.html</p>
+</div></blockquote>
+</li>
+<li><p>Pousser les modifications sur dev</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Merger sur dev</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>dev
+git<span class="w"> </span>fetch
+git<span class="w"> </span>merge<span class="w"> </span>content/change-title
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Pousser sur le dépôt Github</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>dev
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
 </section>
 </section>
 

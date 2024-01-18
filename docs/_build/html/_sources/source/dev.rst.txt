@@ -88,7 +88,7 @@ Ajouter en local un fichier .env à la racine du projet:
     SENTRY_KEY=<clé sentry>
 
 Puis accéder au
-`rapport d'errurs <https://sentry.io/organizations/daguincicode/projects/python-django/?project=4506503864451072>`_
+`rapport d'erreurs <https://sentry.io/organizations/daguincicode/projects/python-django/?project=4506503864451072>`_
 
 * Tester la dernière image docker stable (correspondant à la branche dev)
 
@@ -165,3 +165,121 @@ Ainsi, pour déployer:
 
 Après quelques minutes, le site est visible sur
 `Render <https://oc-orange-county-letting.onrender.com/>`_
+
+Exemple
+-------
+
+Cas d'usage
+^^^^^^^^^^^
+
+On souhaite par exemple modifier le titre du site.
+
+Actuellement "Welcome to Holiday Homes", on souhaite un nouveau titre:
+"Welcome to the Orange County Lettings Website"
+
+Procédure
+^^^^^^^^^
+
+1. Création d'une nouvelle branche
+
+    **Prérequis**
+
+    Avant de pouvoir effectuer une modification il est nécessaire d'
+    :ref:`installer le site en local <installation du site en local>`
+
+    * Dans un terminal, se rendre à la racine du projet
+
+    .. code-block:: python
+
+        cd emplacement/du/projet
+
+    * S'assurer d'avoir la dernière version dev à jour:
+
+    .. code-block:: bash
+
+        git checkout dev
+        git fetch
+
+    * Créer la nouvelle branche
+
+    .. code-block:: bash
+
+        git branch -b content/change-title
+
+    *L'option -b permet de basculer instantanément sur la nouvele branche*
+
+2. Travail en local
+
+    Avant de commencer, on passe le site en mode développement, en modifiant
+    l'option DEBUG dans le fichier ./oc_lettings_site/settings.py:
+
+    .. code-block:: python
+
+        DEBUG = True
+
+    * Modification du code
+
+    Dans notre cas, on modifie le fichier ./home/templates/home/index.html,
+    à la ligne 10:
+
+    .. code-block:: html
+
+        <h1 class="page-header-ui-title mb-3 display-6">Welcome to the Orange County Lettings Website</h1>
+
+    * Tester la modification en local
+
+    .. code-block:: bash
+
+        python manage.py runserver
+
+    Puis se rendre sur `http://localhost:8000` à l'aide d'un navigateur.
+
+    * Vérifier qu'aucune fonction du site n'a été impactée par la modification
+
+    .. code-block:: bash
+
+        pytest
+
+    Si tous les tests passent, on passe à l'étape suivante.
+
+    * Effectuer un commit de la modification
+
+    .. code-block:: bash
+
+        git add .
+        git commit -m
+
+    * Mettre à jour la documentation
+
+    Bien que ce ne soit pas nécessaire dans notre cas d'usage,
+    c'est ce moment qu'on préférera pour modifier la documentation.
+
+    Pour cela on modifiera l'un des fichiers .rst présents dans ./docs/source,
+    voire le fichier .dos/index.rst en cas de nouvelle section, pour la faire
+    apparaître dans le sommaire.
+
+    * Tester la documentation en local
+
+    .. code-block:: bash
+
+        cd docs
+        make html
+
+    Afficher la nouvelle documentation en ouvrant le fichier
+    .docs/_build/html/index.html
+
+3. Pousser les modifications sur dev
+
+    * Merger sur dev
+
+    .. code-block:: bash
+
+        git checkout dev
+        git fetch
+        git merge content/change-title
+
+    * Pousser sur le dépôt Github
+
+    .. code-block:: bash
+
+        git push origin dev

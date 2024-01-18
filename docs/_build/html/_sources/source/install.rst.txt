@@ -10,8 +10,8 @@ location de biens immobiliers.
 
 La start-up est en pleine phase d’expansion aux États-Unis.
 
-Installation
-------------
+Installation du site en local
+-----------------------------
 
 1. Cloner le repertoire git
 
