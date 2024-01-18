@@ -7,7 +7,9 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
+    """
+    Création des tables Address, Letting et Profile
+    """
     initial = True
 
     dependencies = [

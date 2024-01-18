@@ -5,6 +5,9 @@ from lettings.models import Address
 
 
 class TestUrls(TestCase):
+    """
+    Class testcase pour les urls
+    """
     client = Client()
 
     @classmethod
@@ -19,9 +22,15 @@ class TestUrls(TestCase):
         )
 
     def test_lettings_list_url_is_resolved(self):
+        """
+        Test du fonctionnement du namespace lettings et de la fonction index
+        """
         url = reverse('lettings:index')
         assert url == '/lettings/'
 
     def test_letting_url_is_resolved(self):
+        """
+        Test du fonctionnement du namespace lettings et de la fonction letting
+        """
         url = reverse('lettings:letting', kwargs={'letting_id': self.letting.id})
         assert url == '/lettings/'+str(self.letting.id)+'/'

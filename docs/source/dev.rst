@@ -88,7 +88,7 @@ Ajouter en local un fichier .env à la racine du projet:
     SENTRY_KEY=<clé sentry>
 
 Puis accéder au
-`rapport d'errurs <https://sentry.io/organizations/daguincicode/projects/python-django/?project=4506503864451072>`_
+`rapport d'erreurs <https://sentry.io/organizations/daguincicode/projects/python-django/?project=4506503864451072>`_
 
 * Tester la dernière image docker stable (correspondant à la branche dev)
 
