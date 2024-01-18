@@ -3,6 +3,11 @@
 from django.db import migrations
 
 def forwards_func(apps, schema_editor):
+    """
+    Pour transfert de l'app oc_lettings_site vers deux apps,
+    transfert des données de la table oc_lettings_site.Address
+    vers la table lettings.Address
+    """
     OldAddress = apps.get_model("oc_lettings_site", "Address")
     NewAddress = apps.get_model("lettings", "Address")
 
@@ -24,6 +29,9 @@ def forwards_func(apps, schema_editor):
 
 
 def reverse_func(apps, schema_editor):
+    """
+    Inversement de l'action pour retour en arrière éventuel
+    """
     OldAddress = apps.get_model("oc_lettings_site", "Address")
     NewAddress = apps.get_model("lettings", "Address")
 
@@ -45,7 +53,7 @@ def reverse_func(apps, schema_editor):
 
 
 class Migration(migrations.Migration):
-    """launch the migration operations"""
+    """Lance les opérations de migration"""
 
     dependencies = [
         ('lettings', '0001_initial'),

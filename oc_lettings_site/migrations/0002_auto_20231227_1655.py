@@ -4,6 +4,11 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
+    """
+    Pour transfert de l'app oc_lettings_site vers deux apps,
+    suppression des tables oc_lettings_site.Address, oc_lettings_site.Letting
+    et oc_lettings_site.Profile
+    """
 
     dependencies = [
         ('oc_lettings_site', '0001_initial'),

@@ -4,6 +4,9 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
+    """
+    Correction du pluriel affiché de la table address
+    """
 
     dependencies = [
         ('lettings', '0003_auto_20231226_1559'),

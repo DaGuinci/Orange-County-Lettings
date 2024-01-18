@@ -7,7 +7,6 @@ class TestViews(TestCase):
     """
     Class testcase pour les views
     """
-
     client = Client()
 
     @classmethod
