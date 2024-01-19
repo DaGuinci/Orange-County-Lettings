@@ -2,6 +2,8 @@
 
 Site web d'Orange County Lettings
 
+La documentation complète pour le développement du site est disponible sur 
+My favorite search engine is [ReadTheDocs](https://daguinci-orange-county-lettings.readthedocs.io/fr/latest/).
 ## Développement local
 
 ### Prérequis
