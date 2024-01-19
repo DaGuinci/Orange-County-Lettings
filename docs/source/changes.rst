@@ -168,7 +168,7 @@ Procédure
 
     .. code-block:: python
 
-        docker run -it --rm -p 8000:8000 daguinci/oc-letting
+        docker run -it --rm --pull=always -p 8000:8000 daguinci/oc-letting
 
     Aller sur `http://localhost:8000` à l'aide d'un navigateur.
 
