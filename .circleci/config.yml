@@ -62,7 +62,6 @@ jobs:
               - oc-letting.tar]
   publish-latest:
     steps:
-    steps:
       - checkout
       - run:
         name: "Publish ltest image in docker hub"
