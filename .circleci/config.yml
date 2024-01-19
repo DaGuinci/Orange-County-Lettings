@@ -14,7 +14,15 @@ workflows:
           filters:
             branches:
               only:
+                - dev
                 - master
+      - publish-latest:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - dev
       - deploy:
           requires:
             - build
@@ -47,12 +55,34 @@ jobs:
         - run:
             name: "Build Docker Image"
             command: |
-              docker build -t oc-letting .
-              docker save -o oc-letting.tar oc-letting
+              docker build -t daguinci/oc-letting .
+              docker save -o oc-letting.tar daguinci/oc-letting
         - persist_to_workspace:
             root: .
             paths:
               - oc-letting.tar
+  publish-latest:
+    docker:
+      - image: cimg/base:stable
+    steps:
+        - checkout
+        - setup_remote_docker:
+            docker_layer_caching: true
+        # - attach_workspace:
+        #     at: .
+        - run:
+            name: "Connect to docker hub"
+            command: $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+        - run:
+            name: "Publish latest image in docker hub"
+            command: docker push daguinci/oc-lettin
+  #     - setup_remote_docker:
+  #           docker_layer_caching: true
+  #     - attach_workspace:
+  #         at: .
+  #     - run:
+  #         name: "Load docker image"
+  #         command: docker load -i oc-letting.tar
 
   deploy:
     docker:
