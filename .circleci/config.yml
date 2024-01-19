@@ -77,9 +77,10 @@ jobs:
             name: "Connect to docker hub"
             command: |
               echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
-        - run:
-            name: "Publish latest image in docker hub"
-            command: docker push daguinci/oc-letting
+              docker push daguinci/oc-letting
+        # - run:
+        #     name: "Publish latest image in docker hub"
+        #     command: docker push daguinci/oc-letting
   #     - setup_remote_docker:
   #           docker_layer_caching: true
   #     - attach_workspace:
