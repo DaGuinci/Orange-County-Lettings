@@ -16,9 +16,12 @@ workflows:
               only:
                 - dev
                 - master
+                # TODO comment
+                - circleCiConfig/automate-push-docker-hub
       - publish-latest:
           requires:
             - build
+          # TODO uncomment
           # filters:
           #   branches:
           #     only:
