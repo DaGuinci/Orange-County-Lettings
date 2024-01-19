@@ -74,6 +74,7 @@ jobs:
   #     - run:
   #         name: "Load docker image"
   #         command: docker load -i oc-letting.tar
+
   deploy:
     docker:
       - image: cimg/base:stable
