@@ -210,15 +210,6 @@ Procédure
 
 2. Travail en local
 
-    Avant de commencer, on passe le site en mode développement, en modifiant
-    l'option DEBUG dans le fichier ./oc_lettings_site/settings.py:
-
-    .. code-block:: python
-
-        DEBUG = True
-
-    * Modification du code
-
     Dans notre cas, on modifie le fichier ./home/templates/home/index.html,
     à la ligne 10:
 
@@ -242,20 +233,30 @@ Procédure
 
     Si tous les tests passent, on passe à l'étape suivante.
 
+    * Maintenir le respect des normes pep8
+
+    .. code-block:: bash
+
+        flake8
+
+    Le cas échéant, effectuer les corrections pour
+    n'avoir aucune erreur flake8.
+
     * Effectuer un commit de la modification
 
     .. code-block:: bash
 
         git add .
-        git commit -m
+        git commit -m "content(index.html): site's title modification"
 
     * Mettre à jour la documentation
+
 
     Bien que ce ne soit pas nécessaire dans notre cas d'usage,
     c'est ce moment qu'on préférera pour modifier la documentation.
 
     Pour cela on modifiera l'un des fichiers .rst présents dans ./docs/source,
-    voire le fichier .dos/index.rst en cas de nouvelle section, pour la faire
+    voire le fichier .docs/index.rst en cas de nouvelle section, pour la faire
     apparaître dans le sommaire.
 
     * Tester la documentation en local
@@ -283,3 +284,36 @@ Procédure
     .. code-block:: bash
 
         git push origin dev
+
+    * Mettre à jour l'image docker de dev
+
+    .. code-block:: bash
+
+        docker build -t daguinci/oc-letting .
+        docker push daguinci/oc-letting
+
+    * Tester l'image ainsi buildée
+
+    .. code-block:: python
+
+        docker run -it --rm -p 8000:8000 daguinci/oc-letting
+
+    Aller sur `http://localhost:8000` à l'aide d'un navigateur.
+
+    * Vérifier que les tests sont passés sur la pipeline de CircleCi
+
+    * Vérifier la mise à jour de la documentation sur `https://daguinci-orange-county-lettings.readthedocs.io/fr/dev/`
+
+4. Déployer le site
+
+    .. code-block:: bash
+
+        git checkout master
+        git merge dev
+        git push origin master
+
+    * Vérifier le processus de déploiement sur CircleCi
+
+    * Vérfifier la mise à jour de la documentation sur `https://daguinci-orange-county-lettings.readthedocs.io/fr/latest/`
+
+    * Vérifier la modification en ligne sur `https://oc-orange-county-letting.onrender.com/`

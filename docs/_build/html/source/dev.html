@@ -275,15 +275,7 @@ git<span class="w"> </span>fetch
 </li>
 <li><p>Travail en local</p>
 <blockquote>
-<div><p>Avant de commencer, on passe le site en mode développement, en modifiant
-l’option DEBUG dans le fichier ./oc_lettings_site/settings.py:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">True</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>Modification du code</p></li>
-</ul>
-<p>Dans notre cas, on modifie le fichier ./home/templates/home/index.html,
+<div><p>Dans notre cas, on modifie le fichier ./home/templates/home/index.html,
 à la ligne 10:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;page-header-ui-title mb-3 display-6&quot;</span><span class="p">&gt;</span>Welcome to the Orange County Lettings Website<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 </pre></div>
@@ -303,10 +295,18 @@ l’option DEBUG dans le fichier ./oc_lettings_site/settings.py:</p>
 </div>
 <p>Si tous les tests passent, on passe à l’étape suivante.</p>
 <ul class="simple">
+<li><p>Maintenir le respect des normes pep8</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>flake8
+</pre></div>
+</div>
+<p>Le cas échéant, effectuer les corrections pour
+n’avoir aucune erreur flake8.</p>
+<ul class="simple">
 <li><p>Effectuer un commit de la modification</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
-git<span class="w"> </span>commit<span class="w"> </span>-m
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;content(index.html): site&#39;s title modification&quot;</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -315,7 +315,7 @@ git<span class="w"> </span>commit<span class="w"> </span>-m
 <p>Bien que ce ne soit pas nécessaire dans notre cas d’usage,
 c’est ce moment qu’on préférera pour modifier la documentation.</p>
 <p>Pour cela on modifiera l’un des fichiers .rst présents dans ./docs/source,
-voire le fichier .dos/index.rst en cas de nouvelle section, pour la faire
+voire le fichier .docs/index.rst en cas de nouvelle section, pour la faire
 apparaître dans le sommaire.</p>
 <ul class="simple">
 <li><p>Tester la documentation en local</p></li>
@@ -344,6 +344,38 @@ git<span class="w"> </span>merge<span class="w"> </span>content/change-title
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>dev
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>Mettre à jour l’image docker de dev</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>daguinci/oc-letting<span class="w"> </span>.
+docker<span class="w"> </span>push<span class="w"> </span>daguinci/oc-letting
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Tester l’image ainsi buildée</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8000</span><span class="p">:</span><span class="mi">8000</span> <span class="n">daguinci</span><span class="o">/</span><span class="n">oc</span><span class="o">-</span><span class="n">letting</span>
+</pre></div>
+</div>
+<p>Aller sur <cite>http://localhost:8000</cite> à l’aide d’un navigateur.</p>
+<ul class="simple">
+<li><p>Vérifier que les tests sont passés sur la pipeline de CircleCi</p></li>
+<li><p>Vérifier la mise à jour de la documentation sur <cite>https://daguinci-orange-county-lettings.readthedocs.io/fr/dev/</cite></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Déployer le site</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>master
+git<span class="w"> </span>merge<span class="w"> </span>dev
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>master
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Vérifier le processus de déploiement sur CircleCi</p></li>
+<li><p>Vérfifier la mise à jour de la documentation sur <cite>https://daguinci-orange-county-lettings.readthedocs.io/fr/latest/</cite></p></li>
+<li><p>Vérifier la modification en ligne sur <cite>https://oc-orange-county-letting.onrender.com/</cite></p></li>
+</ul>
 </div></blockquote>
 </li>
 </ol>
