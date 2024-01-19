@@ -66,7 +66,10 @@ jobs:
       - image: cimg/base:stable
     steps:
         - checkout
-        - setup_remote_docker
+        - setup_remote_docker:
+            docker_layer_caching: true
+        - attach_workspace:
+            at: .
         - run:
           name: "Connect to docker hub"
           command: $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
