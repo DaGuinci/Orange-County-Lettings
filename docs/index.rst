@@ -11,5 +11,5 @@ Bienvenue sur la documentation du site Orange County Letting!
    :caption: Contents:
 
    source/install
-   source/dev
-   source/admin
+   source/specs
+   source/changes
