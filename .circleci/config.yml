@@ -16,16 +16,13 @@ workflows:
               only:
                 - dev
                 - master
-                # TODO comment
-                - circleCiConfig/automate-push-docker-hub
       - publish-latest:
           requires:
             - build
-          # TODO uncomment
-          # filters:
-          #   branches:
-          #     only:
-          #       - dev
+          filters:
+            branches:
+              only:
+                - dev
       - deploy:
           requires:
             - build
@@ -71,24 +68,11 @@ jobs:
         - checkout
         - setup_remote_docker:
             docker_layer_caching: true
-        # - attach_workspace:
-        #     at: .
         - run:
             name: "Connect to docker hub"
             command: |
               echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
               docker push daguinci/oc-letting
-        # - run:
-        #     name: "Publish latest image in docker hub"
-        #     command: docker push daguinci/oc-letting
-  #     - setup_remote_docker:
-  #           docker_layer_caching: true
-  #     - attach_workspace:
-  #         at: .
-  #     - run:
-  #         name: "Load docker image"
-  #         command: docker load -i oc-letting.tar
-
   deploy:
     docker:
       - image: cimg/base:stable
