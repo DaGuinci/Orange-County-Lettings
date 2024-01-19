@@ -15,6 +15,13 @@ workflows:
             branches:
               only:
                 - master
+      # - publish-latest:
+      #     requires:
+      #       - build
+      #     filters:
+      #       branches:
+      #         only:
+      #           - dev
       - deploy:
           requires:
             - build
@@ -53,7 +60,19 @@ jobs:
             root: .
             paths:
               - oc-letting.tar
-
+    - when:
+        condition:
+          - equal: [ dev, << pipeline.git.branch >> ]
+  # publish-latest:
+  #   steps:
+  #     - checkout
+  #     - setup_remote_docker:
+  #           docker_layer_caching: true
+  #     - attach_workspace:
+  #         at: .
+  #     - run:
+  #         name: "Load docker image"
+  #         command: docker load -i oc-letting.tar
   deploy:
     docker:
       - image: cimg/base:stable
