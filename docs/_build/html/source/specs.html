@@ -49,7 +49,9 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Environnement technique</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#langages-utilises">Langages utilisés</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#structure-des-fichiers">Structure des fichiers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#structure-de-la-base-de-donnees">Structure de la base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interfaces-de-programmation">Interfaces de programmation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="changes.html">Proposer une modification</a></li>
@@ -87,11 +89,8 @@ fichiers de configuration de CircleCi et Docker, l’ensemble du site est codé 
 <p>La documentation est écrite en <strong>ReStructuredText</strong>, compilée à l’aide
 de <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>.</p>
 </section>
-<section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
-<ol class="arabic simple">
-<li><p>Structure des fichiers</p></li>
-</ol>
+<section id="structure-des-fichiers">
+<h2>Structure des fichiers<a class="headerlink" href="#structure-des-fichiers" title="Link to this heading"></a></h2>
 <p>Le site, basé sur Django, <strong>contient trois apps:</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>oc-lettings-site
 ├──<span class="w"> </span>app:home
@@ -117,9 +116,9 @@ de <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sp
 <span class="w">    </span>└──<span class="w"> </span>settings.py
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li><p>Structure de la base de données</p></li>
-</ol>
+</section>
+<section id="structure-de-la-base-de-donnees">
+<h2>Structure de la base de données<a class="headerlink" href="#structure-de-la-base-de-donnees" title="Link to this heading"></a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Dans l’attente de nouvelles instructions,
@@ -128,8 +127,9 @@ la <strong>base de données, en sqlite, est versionnée</strong>.</p>
 auront un impact sur les bases des collaborateurs
 et celle de la production, en cas de push.</p>
 </div>
-<ol class="arabic" start="3">
-<li><p>Interfaces de programmation</p>
+</section>
+<section id="interfaces-de-programmation">
+<h2>Interfaces de programmation<a class="headerlink" href="#interfaces-de-programmation" title="Link to this heading"></a></h2>
 <blockquote>
 <div><ul class="simple">
 <li><p>Sentry</p></li>
@@ -194,8 +194,6 @@ pour obtenir la réussite de cette suite de tests)</p></li>
 <p>Ces deux versions sont automatiquement mises à jour à chaque commit reçu par Git Hub,
 respectivement sur la branche dev et sur la branche master.</p>
 </div></blockquote>
-</li>
-</ol>
 </section>
 </section>
 

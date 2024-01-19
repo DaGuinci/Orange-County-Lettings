@@ -11,10 +11,8 @@ fichiers de configuration de CircleCi et Docker, l'ensemble du site est codé en
 La documentation est écrite en **ReStructuredText**, compilée à l'aide
 de `Sphinx <https://www.sphinx-doc.org/en/master/>`_.
 
-Description
------------
-
-1. Structure des fichiers
+Structure des fichiers
+----------------------
 
 Le site, basé sur Django, **contient trois apps:**
 
@@ -43,7 +41,8 @@ Le site, basé sur Django, **contient trois apps:**
    ├── config:oc_lettings_site
        └── settings.py
 
-2. Structure de la base de données
+Structure de la base de données
+-------------------------------
 
 .. warning::
 
@@ -54,7 +53,8 @@ Le site, basé sur Django, **contient trois apps:**
     auront un impact sur les bases des collaborateurs
     et celle de la production, en cas de push.
 
-3. Interfaces de programmation
+Interfaces de programmation
+---------------------------
 
     * Sentry
 
