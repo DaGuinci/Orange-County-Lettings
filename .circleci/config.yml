@@ -60,9 +60,9 @@ jobs:
             root: .
             paths:
               - oc-letting.tar
-    - when:
-        condition:
-          - equal: [ dev, << pipeline.git.branch >> ]
+    # - when:
+    #     condition:
+    #       - equal: [ dev, << pipeline.git.branch >> ]
   # publish-latest:
   #   steps:
   #     - checkout
