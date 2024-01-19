@@ -76,7 +76,6 @@ jobs:
         - run:
             name: "Connect to docker hub"
             command: |
-              echo "$DOCKER_PASS"
               echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
         - run:
             name: "Publish latest image in docker hub"
