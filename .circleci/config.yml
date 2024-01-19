@@ -60,6 +60,7 @@ jobs:
             root: .
             paths:
               - oc-letting.tar]
+
   publish-latest:
     docker:
       - image: cimg/base:stable
