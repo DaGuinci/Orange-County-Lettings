@@ -64,9 +64,10 @@ jobs:
     steps:
     steps:
       - checkout
-      - run: |
-      echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
-      docker push daguinci/oc-letting
+      - run:
+        name: "Publish ltest image in docker hub"
+        command: $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+        command: docker push daguinci/oc-letting
   #     - setup_remote_docker:
   #           docker_layer_caching: true
   #     - attach_workspace:
