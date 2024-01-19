@@ -19,10 +19,10 @@ workflows:
       - publish-latest:
           requires:
             - build
-          filters:
-            branches:
-              only:
-                - dev
+          # filters:
+          #   branches:
+          #     only:
+          #       - dev
       - deploy:
           requires:
             - build
@@ -72,7 +72,9 @@ jobs:
         #     at: .
         - run:
             name: "Connect to docker hub"
-            command: $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+            command: |
+              echo "$DOCKER_PASS"
+              echo "$DOCKER_PASS" | docker login --username $DOCKER_USER --password-stdin
         - run:
             name: "Publish latest image in docker hub"
             command: docker push daguinci/oc-lettin
