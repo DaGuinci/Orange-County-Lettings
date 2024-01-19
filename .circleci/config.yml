@@ -61,6 +61,8 @@ jobs:
             paths:
               - oc-letting.tar]
   publish-latest:
+    docker:
+      - image: cimg/base:stable
     steps:
         - checkout
         - run:
