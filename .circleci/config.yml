@@ -54,15 +54,19 @@ jobs:
         - run:
             name: "Build Docker Image"
             command: |
-              docker build -t oc-letting .
-              docker save -o oc-letting.tar oc-letting
+              docker build -t daguinci/oc-letting .
+              docker save -o oc-letting.tar daguinci/oc-letting
         - persist_to_workspace:
             root: .
             paths:
               - oc-letting.tar
-    # - when:
-    #     condition:
-    #       - equal: [ dev, << pipeline.git.branch >> ]
+    - when:
+        condition:
+          - equal: [ dev, << pipeline.git.branch >> ]
+        steps:
+          - run: |
+          echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+          docker push daguinci/oc-letting
   # publish-latest:
   #   steps:
   #     - checkout
