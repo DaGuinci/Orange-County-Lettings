@@ -30,7 +30,6 @@ if DEBUG is True:
 elif DEBUG is False:
     ALLOWED_HOSTS = ["*"]
 
-
 # Application definition
 
 INSTALLED_APPS = [
