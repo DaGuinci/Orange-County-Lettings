@@ -5,8 +5,14 @@ from django.contrib.auth.models import User
 
 # models test
 class ProfilesModelsTest(TestCase):
+    """
+    Class testcase pour les models
+    """
 
     def test_profile_creation(self):
+        """
+        Test de la création d'un profile
+        """
         user_test = User.objects.create(
             username='user_test',
             email='user@test.com'

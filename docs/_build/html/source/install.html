@@ -21,7 +21,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Developpement" href="dev.html" />
+    <link rel="next" title="Environnement technique" href="specs.html" />
     <link rel="prev" title="Bienvenue sur la documentation du site Orange County Letting!" href="../index.html" /> 
 </head>
 
@@ -48,11 +48,12 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#contexte">Contexte</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-du-site-en-local">Installation du site en local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#administration">Administration</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="dev.html">Developpement</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specs.html">Environnement technique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changes.html">Proposer une modification</a></li>
 </ul>
 
         </div>
@@ -71,7 +72,6 @@
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Installation</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/source/install.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -86,20 +86,22 @@
 <p>Orange County Lettings est une start-up dans le secteur de la
 location de biens immobiliers.</p>
 <p>La start-up est en pleine phase d’expansion aux États-Unis.</p>
+<p>La présente documentation concerne le développement du site web de cette start-up,
+disponible à <a class="reference external" href="https://oc-orange-county-letting.onrender.com/">cette adresse</a>.</p>
 </section>
-<section id="id1">
-<h2>Installation<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="installation-du-site-en-local">
+<h2>Installation du site en local<a class="headerlink" href="#installation-du-site-en-local" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
 <li><p>Cloner le repertoire git</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/put/project/in
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/emplacement/du/dossier/contenant/le/projet
 git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DaGuinci/Orange-County-Lettings.git
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
 <li><p>Créer l’environnement virtuel</p></li>
 </ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/Python-OC-Lettings-FR
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>Orange-County-Lettings
 python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
 </pre></div>
 </div>
@@ -128,7 +130,7 @@ python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </s
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Pour désactiver l’environnement</p></li>
+<li><p>Pour désactiver l’environnement (à titre indicatif)</p></li>
 </ul>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>deactivate
 </pre></div>
@@ -138,13 +140,23 @@ python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </s
 </ol>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/Python-OC-Lettings-FR
 <span class="nb">source</span><span class="w"> </span>venv/bin/activate
-pip<span class="w"> </span>install<span class="w"> </span>--requirement<span class="w"> </span>requirements.txt
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 python<span class="w"> </span>manage.py<span class="w"> </span>runserver
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>Aller sur <cite>http://localhost:8000</cite> dans un navigateur.</p></li>
 </ul>
+</section>
+<section id="administration">
+<h2>Administration<a class="headerlink" href="#administration" title="Link to this heading"></a></h2>
+<p>Se rendre sur le panel d’administration:</p>
+<ul class="simple">
+<li><p>en local, <code class="docutils literal notranslate"><span class="pre">http://localhost:8000/admin</span></code></p></li>
+<li><p>Sur le site déployé,
+<code class="docutils literal notranslate"><span class="pre">https://oc-orange-county-letting.onrender.com/admin</span></code></p></li>
+</ul>
+<p>Se connecter avec l’utilisateur <cite>admin</cite> et le mot de passe <cite>Abc1234!</cite></p>
 </section>
 </section>
 
@@ -153,7 +165,7 @@ python<span class="w"> </span>manage.py<span class="w"> </span>runserver
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../index.html" class="btn btn-neutral float-left" title="Bienvenue sur la documentation du site Orange County Letting!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="dev.html" class="btn btn-neutral float-right" title="Developpement" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="specs.html" class="btn btn-neutral float-right" title="Environnement technique" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

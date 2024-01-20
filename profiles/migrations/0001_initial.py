@@ -6,6 +6,10 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
+    """
+    Pour transfert de l'app oc_lettings_site vers deux apps,
+    création de la table profiles.profile
+    """
 
     initial = True
 

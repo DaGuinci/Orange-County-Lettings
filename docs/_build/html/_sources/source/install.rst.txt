@@ -10,21 +10,24 @@ location de biens immobiliers.
 
 La start-up est en pleine phase d’expansion aux États-Unis.
 
-Installation
-------------
+La présente documentation concerne le développement du site web de cette start-up,
+disponible à `cette adresse <https://oc-orange-county-letting.onrender.com/>`_.
+
+Installation du site en local
+-----------------------------
 
 1. Cloner le repertoire git
 
 .. code-block:: bash
 
-    cd /path/to/put/project/in
+    cd /emplacement/du/dossier/contenant/le/projet
     git clone https://github.com/DaGuinci/Orange-County-Lettings.git
 
 2. Créer l'environnement virtuel
 
 .. code-block:: bash
 
-    cd /path/to/Python-OC-Lettings-FR
+    cd Orange-County-Lettings
     python -m venv venv
 
 * Activer l'environnement
@@ -55,7 +58,7 @@ Installation
     which pip
 
 
-* Pour désactiver l'environnement
+* Pour désactiver l'environnement (à titre indicatif)
 
 .. code-block:: bash
 
@@ -68,8 +71,19 @@ Installation
 
     cd /path/to/Python-OC-Lettings-FR
     source venv/bin/activate
-    pip install --requirement requirements.txt
+    pip install -r requirements.txt
     python manage.py runserver
 
 * Aller sur `http://localhost:8000` dans un navigateur.
 
+Administration
+--------------
+
+Se rendre sur le panel d'administration:
+
+* en local, ``http://localhost:8000/admin``
+
+* Sur le site déployé,
+  ``https://oc-orange-county-letting.onrender.com/admin``
+
+Se connecter avec l'utilisateur `admin` et le mot de passe `Abc1234!`

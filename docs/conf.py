@@ -2,7 +2,7 @@
 #
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
-import sphinx_rtd_theme
+import sphinx_rtd_theme  # noqa
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -14,7 +14,7 @@ author = 'Daguinci'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+extensions = ['sphinx.ext.autosectionlabel']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
@@ -27,3 +27,5 @@ master_doc = 'index'
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+
+html_show_sourcelink = False
