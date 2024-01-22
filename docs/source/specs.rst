@@ -53,6 +53,11 @@ Structure de la base de données
     auront un impact sur les bases des collaborateurs
     et celle de la production, en cas de push.
 
+.. uml::
+
+   Alice -> Bob: Hi!
+   Alice <- Bob: How are you?
+
 Interfaces de programmation
 ---------------------------
 

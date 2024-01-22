@@ -230,7 +230,7 @@ git<span class="w"> </span>merge<span class="w"> </span>content/change-title
 </ul>
 <p>Après quelques minutes, une nouvelle image docker a été envoyée sur Docker Hub lors
 de l’envoi d’un commit sur dev.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">--</span><span class="n">rm</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8000</span><span class="p">:</span><span class="mi">8000</span> <span class="n">daguinci</span><span class="o">/</span><span class="n">oc</span><span class="o">-</span><span class="n">letting</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">it</span> <span class="o">--</span><span class="n">rm</span> <span class="o">--</span><span class="n">pull</span><span class="o">=</span><span class="n">always</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8000</span><span class="p">:</span><span class="mi">8000</span> <span class="n">daguinci</span><span class="o">/</span><span class="n">oc</span><span class="o">-</span><span class="n">letting</span>
 </pre></div>
 </div>
 <p>Aller sur <cite>http://localhost:8000</cite> à l’aide d’un navigateur.</p>
