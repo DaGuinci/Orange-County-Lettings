@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import sentry_sdk
 # from django.shortcuts import render_to_response
 # from django.template import RequestContext
 
@@ -28,4 +29,8 @@ def error_generating(request):
     """
     Génère une erreur pour test de la page 500
     """
-    raise Exception("This is a test error")
+    try:
+        '2' + 2
+    except TypeError:
+        sentry_sdk.capture_message("Custom test error")
+        return render(request, 'home/500.html', status=500)

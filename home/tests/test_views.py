@@ -1,5 +1,4 @@
 from django.test import TestCase, Client
-import pytest
 
 
 class TestViews(TestCase):
@@ -33,8 +32,6 @@ class TestViews(TestCase):
         error_generating de home/view.py:
         La page 500 personnalisée s'affiche.
         """
-        with pytest.raises(Exception):
-            response = self.client.get('/error')
-
-            assert response.status_code == 500
-            self.assertTemplateUsed(response, 'home/500.html')
+        response = self.client.get('/error')
+        assert response.status_code == 500
+        self.assertTemplateUsed(response, 'home/500.html')

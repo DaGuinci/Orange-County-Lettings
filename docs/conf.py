@@ -14,7 +14,10 @@ author = 'Daguinci'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.autosectionlabel']
+extensions = [
+    'sphinx.ext.autosectionlabel',
+    'sphinxcontrib.plantuml',
+]
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
@@ -27,5 +30,8 @@ master_doc = 'index'
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
+html_css_files = [
+    'css/erd.css',
+]
 
 html_show_sourcelink = False

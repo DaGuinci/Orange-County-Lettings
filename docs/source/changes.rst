@@ -127,6 +127,13 @@ Procédure
     voire le fichier .docs/index.rst en cas de nouvelle section, pour la faire
     apparaître dans le sommaire.
 
+    .. note::
+        Le diagramme entité-relation de la base de données est généré
+        avec `draw.io <https://www.drawio.com/>`_, puis exporté sous ERD.svg.
+        Les documents ./docs/source/entity_relation_diagram.drawio et
+        ./docs/source/ERD.svg devront donc être modifié en cas de changement de
+        la structure de la base de données.
+
     * Tester la documentation en local
 
     .. code-block:: bash
