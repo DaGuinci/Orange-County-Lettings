@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Profile
-from django.shortcuts import get_object_or_404
+from django.core.exceptions import ObjectDoesNotExist
+import sentry_sdk
 
 
 def index(request):
@@ -16,6 +17,11 @@ def profile(request, username):
     """
     Affiche les détails d'un profile
     """
-    profile = get_object_or_404(Profile, user__username=username)
-    context = {'profile': profile}
-    return render(request, 'profiles/profile.html', context)
+    try:
+        profile = Profile.objects.get(user__username=username)
+        context = {'profile': profile}
+        return render(request, 'profiles/profile.html', context)
+    except ObjectDoesNotExist:
+        sentry_sdk.capture_message("Profile not found")
+        context = {'type': 'profile'}
+        return render(request, 'home/404.html', context)

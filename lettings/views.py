@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from lettings.models import Letting
-from django.shortcuts import get_object_or_404
+from django.core.exceptions import ObjectDoesNotExist
+import sentry_sdk
 
 
 def index(request):
@@ -16,9 +17,14 @@ def letting(request, letting_id):
     """
     Affiche les détails d'un letting
     """
-    letting = get_object_or_404(Letting, id=letting_id)
-    context = {
-            'title': letting.title,
-            'address': letting.address,
-        }
-    return render(request, 'lettings/letting.html', context)
+    try:
+        letting = Letting.objects.get(id=letting_id)
+        context = {
+                'title': letting.title,
+                'address': letting.address,
+            }
+        return render(request, 'lettings/letting.html', context)
+    except ObjectDoesNotExist:
+        sentry_sdk.capture_message("Letting not found")
+        context = {'type': 'letting'}
+        return render(request, 'home/404.html', context)
