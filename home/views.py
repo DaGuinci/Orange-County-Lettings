@@ -33,4 +33,4 @@ def error_generating(request):
         '2' + 2
     except TypeError:
         sentry_sdk.capture_message("Custom test error")
-    return render(request, 'home/500.html')
+        return render(request, 'home/500.html', status=500)

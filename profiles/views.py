@@ -24,4 +24,4 @@ def profile(request, username):
     except ObjectDoesNotExist:
         sentry_sdk.capture_message("Profile not found")
         context = {'type': 'profile'}
-        return render(request, 'home/404.html', context)
+        return render(request, 'home/404.html', context, status=404)

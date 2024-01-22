@@ -27,4 +27,4 @@ def letting(request, letting_id):
     except ObjectDoesNotExist:
         sentry_sdk.capture_message("Letting not found")
         context = {'type': 'letting'}
-        return render(request, 'home/404.html', context)
+        return render(request, 'home/404.html', context, status=404)
