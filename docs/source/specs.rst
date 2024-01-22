@@ -11,6 +11,8 @@ fichiers de configuration de CircleCi et Docker, l'ensemble du site est codé en
 La documentation est écrite en **ReStructuredText**, compilée à l'aide
 de `Sphinx <https://www.sphinx-doc.org/en/master/>`_.
 
+Le diagramme de classe de la présente page est écrit en PlantUml. (cf `PlantUml <https://plantuml.com/fr/>`_)
+
 Structure des fichiers
 ----------------------
 
@@ -53,10 +55,53 @@ Structure de la base de données
     auront un impact sur les bases des collaborateurs
     et celle de la production, en cas de push.
 
+Diagramme de classe
+^^^^^^^^^^^^^^^^^^^
+
 .. uml::
 
-   Alice -> Bob: Hi!
-   Alice <- Bob: How are you?
+    @startuml
+    skinparam backgroundColor #fff
+    skinparam roundcorner 20
+    skinparam classfontcolor lemon chiffon
+    skinparam titlefontcolor black
+    skinparam arrowfontcolor black
+    skinparam attributefontcolor linen
+
+    skinparam class {
+    BackgroundColor #2980b9
+    ArrowColor #EEB258
+    BorderColor #EEB258
+    AttributeFontColor linen
+    }
+    ' skinparam handwritten true
+    class Profile {
+    - user: User
+    - favorite_city: str
+    }
+
+    class Letting {
+    - titles: str
+    - address: Address
+    }
+
+    class Address {
+    - number: int
+    - street: str
+    - city: str
+    - state: str
+    - zip_code: int
+    - country_iso_code: str
+    }
+
+    Letting "1" -- "1" Address
+    @enduml
+
+Schéma de la base de données
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. figure:: ERD.svg
+    :class: erd
 
 Interfaces de programmation
 ---------------------------
