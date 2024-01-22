@@ -1,9 +1,10 @@
 ## Résumé
 
-Site web d'Orange County Lettings
+Site web d'Orange County Lettings, en ligne [à cette adresse](https://oc-orange-county-letting.onrender.com/).
 
 La documentation complète pour le développement du site est disponible sur 
-My favorite search engine is [ReadTheDocs](https://daguinci-orange-county-lettings.readthedocs.io/fr/latest/).
+[ReadTheDocs](https://daguinci-orange-county-lettings.readthedocs.io/fr/latest/).
+
 ## Développement local
 
 ### Prérequis
@@ -103,32 +104,3 @@ SENTRY_KEY=<clé sentry>
 ## Accéder au rapport d'erreurs Sentry
 
 https://sentry.io/organizations/daguincicode/projects/python-django/?project=4506503864451072
-
-## Utilisation de docker
-
-* récupérer la dernière image (latest):
-
-```bash
-docker pull daguinci/oc-letting
-```
-
-* récupérer une image correspondant à un commit:
-```bash
-docker pull daguinci/oc-letting:<nom du commit>
-```
-
-* créer une nouvelle image :
-
-```bash
-docker build -t daguinci/oc-letting:<nom du commit> .
-```
-
-* Executer l'image:
-```bash
-docker run -p 8000:8000 --name oc-orange-letting daguinci/oc-letting:<nom du commit>
-```
-
-* Pousser l'image vers docker Hub:
-```bash
-  docker push daguinci/oc-letting:<tag>
-```
