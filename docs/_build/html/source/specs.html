@@ -50,7 +50,11 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Environnement technique</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#langages-utilises">Langages utilisés</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#structure-des-fichiers">Structure des fichiers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#structure-de-la-base-de-donnees">Structure de la base de données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#structure-de-la-base-de-donnees">Structure de la base de données</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#diagramme-de-classe">Diagramme de classe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#schema-de-la-base-de-donnees">Schéma de la base de données</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#interfaces-de-programmation">Interfaces de programmation</a></li>
 </ul>
 </li>
@@ -88,6 +92,7 @@
 fichiers de configuration de CircleCi et Docker, l’ensemble du site est codé en <strong>Python</strong>.</p>
 <p>La documentation est écrite en <strong>ReStructuredText</strong>, compilée à l’aide
 de <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a>.</p>
+<p>Le diagramme de classe de la présente page est écrit en PlantUml. (cf <a class="reference external" href="https://plantuml.com/fr/">PlantUml</a>)</p>
 </section>
 <section id="structure-des-fichiers">
 <h2>Structure des fichiers<a class="headerlink" href="#structure-des-fichiers" title="Link to this heading"></a></h2>
@@ -127,10 +132,52 @@ la <strong>base de données, en sqlite, est versionnée</strong>.</p>
 auront un impact sur les bases des collaborateurs
 et celle de la production, en cas de push.</p>
 </div>
+<section id="diagramme-de-classe">
+<h3>Diagramme de classe<a class="headerlink" href="#diagramme-de-classe" title="Link to this heading"></a></h3>
 <p class="plantuml">
-<img src="../_images/plantuml-ad1f67d3637e03e11e0d7cbe15460b96b5074f77.png" alt="Alice -&gt; Bob: Hi!
-Alice &lt;- Bob: How are you?"/>
+<img src="../_images/plantuml-6500c87b8bcd7ea4e80694924f2168d77d77bc41.png" alt="&#64;startuml
+skinparam backgroundColor #fff
+skinparam roundcorner 20
+skinparam classfontcolor lemon chiffon
+skinparam titlefontcolor black
+skinparam arrowfontcolor black
+skinparam attributefontcolor linen
+
+skinparam class {
+BackgroundColor #2980b9
+ArrowColor #EEB258
+BorderColor #EEB258
+AttributeFontColor linen
+}
+' skinparam handwritten true
+class Profile {
+- user: User
+- favorite_city: str
+}
+
+class Letting {
+- titles: str
+- address: Address
+}
+
+class Address {
+- number: int
+- street: str
+- city: str
+- state: str
+- zip_code: int
+- country_iso_code: str
+}
+
+Letting &quot;1&quot; -- &quot;1&quot; Address
+&#64;enduml"/>
 </p>
+</section>
+<section id="schema-de-la-base-de-donnees">
+<h3>Schéma de la base de données<a class="headerlink" href="#schema-de-la-base-de-donnees" title="Link to this heading"></a></h3>
+<figure class="align-default">
+<img alt="../_images/ERD.svg" src="../_images/ERD.svg" /></figure>
+</section>
 </section>
 <section id="interfaces-de-programmation">
 <h2>Interfaces de programmation<a class="headerlink" href="#interfaces-de-programmation" title="Link to this heading"></a></h2>
