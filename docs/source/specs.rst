@@ -101,6 +101,7 @@ Schéma de la base de données
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: ERD.svg
+    :class: erd
 
 Interfaces de programmation
 ---------------------------
