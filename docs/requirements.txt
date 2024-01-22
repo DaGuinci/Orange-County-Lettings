@@ -19,4 +19,3 @@ Babel==2.14.0
 charset-normalizer==3.3.2
 docutils==0.20.1
 sphinxcontrib-plantuml
-plantuml
