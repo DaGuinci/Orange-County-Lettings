@@ -15,7 +15,6 @@ def custom_404(request, exception):
     """
     Affiche la page 404 personnalisée
     """
-    sentry_sdk.capture_message("Custom 404 error")
     return render(request, 'home/404.html', status=404)
 
 
