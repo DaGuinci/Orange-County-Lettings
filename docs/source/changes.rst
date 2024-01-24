@@ -41,7 +41,7 @@ Procédure
 
     .. code-block:: bash
 
-        git branch -b content/change-title
+        git checkout -b content/change-title
 
     *L'option -b permet de basculer instantanément sur la nouvele branche*
 
