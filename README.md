@@ -29,13 +29,13 @@ git clone https://github.com/DaGuinci/Orange-County-Lettings.git
 
 ```bash
 cd /path/to/Python-OC-Lettings-FR
-python -m venv venv
+python -m env env
 ```
 
 * Activer l'environnement 
   
 ```bash
-source venv/bin/activate
+source env/bin/activate
 ```
 
 * Confirmer que la commande `python` exécute l'interpréteur Python dans l'environnement virtuel
@@ -62,7 +62,7 @@ deactivate
 
 ```bash
 cd /path/to/Python-OC-Lettings-FR
-source venv/bin/activate
+source env/bin/activate
 pip install --requirement requirements.txt
 python manage.py runserver
 ```
@@ -73,7 +73,7 @@ python manage.py runserver
 
 ```bash
 cd /path/to/Python-OC-Lettings-FR
-source venv/bin/activate
+source env/bin/activate
 flake8
 ```
 
@@ -82,7 +82,7 @@ flake8
 
 ```bash
 cd /path/to/Python-OC-Lettings-FR
-source venv/bin/activate
+source env/bin/activate
 pytest --cov=.
 ```
 
